@@ -1,9 +1,9 @@
 <div align="center">
   <img src="assets/caps/smw.png" alt="Super Mario World Cover" width="250"/>
 
-  ### 🎮 SNES Classic UI
+  ### 🎮 Emualdor Web para Super Nintendo
 
-  [![Jogar Agora](https://img.shields.io/badge/🎮_JOGAR_AGORA-snes.dellabeneta.io-5c5ab4?style=for-the-badge)](https://snes.dellabeneta.io)
+  [Jogar Agora: snes.dellabeneta.io](https://snes.dellabeneta.io)
 
     <p>
     <a href="#sparkles-features">Features</a> •
