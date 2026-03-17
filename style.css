@@ -1,0 +1,259 @@
+:root {
+    --bg-color-top: #2b313c;
+    --bg-color-bottom: #1a1e24;
+    --line-color: #00e5ff;
+    --yellow-select: #ffea00;
+    --red-snes: #cc0000;
+    --text-color: #ffffff;
+    --font-main: 'Oswald', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(180deg, var(--bg-color-top) 0%, var(--bg-color-bottom) 100%);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+body.hide-cursor {
+    cursor: none;
+}
+
+.background-effects {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+}
+
+.scanlines {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 6px 100%;
+    z-index: 100;
+    position: absolute;
+    pointer-events: none;
+}
+
+/* Header & Logos */
+.top-bar {
+    padding: 20px 40px 10px;
+    position: relative;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo-nintendo {
+    font-size: 0.8rem;
+    color: #999;
+    letter-spacing: 2px;
+    border: 1px solid #999;
+    padding: 0px 8px;
+    border-radius: 10px;
+    margin-bottom: -10px;
+    background: var(--bg-color-top);
+    z-index: 2;
+}
+
+.logo-main {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-snes-dots {
+    display: grid;
+    grid-template-columns: 10px 10px;
+    grid-template-rows: 10px 10px;
+    gap: 5px;
+    transform: rotate(45deg);
+}
+.dot { border-radius: 50%; width: 10px; height: 10px; }
+.dot.green { background: #00cc00; }
+.dot.blue { background: #0066cc; }
+.dot.yellow { background: #ffcc00; }
+.dot.red { background: #cc0000; }
+
+.logo-main h1 {
+    font-size: 3.5rem;
+    font-style: italic;
+    color: var(--red-snes);
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 0px #000;
+}
+
+.logo-sub {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: -10px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.divider-line {
+    height: 2px;
+    background: var(--line-color);
+    box-shadow: 0 0 8px var(--line-color);
+    width: 100%;
+}
+
+/* Game Area */
+.game-area {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+}
+
+.game-area::-webkit-scrollbar { 
+    display: none; 
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 240px);
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1600px;
+    padding: 40px 20px 80px 20px;
+}
+
+/* Game Card */
+.game-card {
+    width: 240px;
+    height: 170px;
+    border: 3px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+    background: #000;
+}
+
+.game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.game-card .snes-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--red-snes);
+    color: #fff;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 2px 0;
+    letter-spacing: 1px;
+}
+
+.game-card:hover, .game-card.active {
+    transform: scale(1.15);
+    border-color: var(--yellow-select);
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px rgba(255, 234, 0, 0.3);
+}
+
+.game-card .game-title {
+    display: none; 
+}
+
+/* Footer / Bottom Bar */
+.bottom-bar {
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.2);
+    flex-wrap: wrap; /* Allows the clock to wrap if needed */
+    gap: 15px;
+}
+
+.bottom-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+}
+
+.controls-guide {
+    display: flex;
+    flex-wrap: wrap; /* Makes the buttons wrap on mobile */
+    gap: 15px 25px;
+    align-items: center;
+    justify-content: center; /* Center them when they wrap */
+}
+
+.controls-guide span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 1px;
+}
+
+.controls-guide kbd {
+    color: var(--line-color);
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.time-display {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Emulator Modal Placeholder */
+#emulator-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #000;
+    z-index: 9999;
+}
+#emulator-modal.hidden {
+    display: none;
+}
+.btn-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    padding: 10px 20px;
+    background: #cc0000; color: white;
+    border: 2px solid white; cursor: pointer;
+    font-family: var(--font-main);
+    z-index: 100;
+}
