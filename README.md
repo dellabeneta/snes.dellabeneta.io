@@ -3,12 +3,8 @@
 
   ### 🎮 Emulador Web para Super Nintendo
 
-  <br>
-
   [![Jogar Agora](https://img.shields.io/badge/🎮_JOGAR_AGORA-snes.dellabeneta.io-5c5ab4?style=for-the-badge)](https://snes.dellabeneta.io)
 
-  <br>
-  
   <p>
     <a href="#features">Features</a> •
     <a href="#tech-stack">Tecnologias</a> •
@@ -65,13 +61,4 @@ O visual foca numa grelha (Grid Layout) com expansão fluída. Quando acionado, 
 
 <br>
 
-<!-- ADICIONE SEUS GIFS ANIMADOS AQUI (Exemplo de Layout):
-<div align="center">
-  <h3>Gameplay (Super Mario World & Donkey Kong)</h3>
-  <img src="assets/gameplay-smw.gif" width="400" />
-  <img src="assets/gameplay-dkc.gif" width="400" />
-</div>
--->
-
-<br>
 <p align="center">Criado com ☕ por Dellabeneta.</p>
