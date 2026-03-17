@@ -64,4 +64,14 @@ O visual foca numa grelha (Grid Layout) com expansão fluída. Quando acionado, 
 </div>
 
 <br>
+
+<!-- ADICIONE SEUS GIFS ANIMADOS AQUI (Exemplo de Layout):
+<div align="center">
+  <h3>Gameplay (Super Mario World & Donkey Kong)</h3>
+  <img src="assets/gameplay-smw.gif" width="400" />
+  <img src="assets/gameplay-dkc.gif" width="400" />
+</div>
+-->
+
+<br>
 <p align="center">Criado com ☕ por Dellabeneta.</p>
