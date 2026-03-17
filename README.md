@@ -1,11 +1,15 @@
 <div align="center">
   <img src="assets/caps/smw.png" alt="Super Mario World Cover" width="250"/>
 
-  ### 🎮 Emualdor Web para Super Nintendo
+  ### 🎮 Emulador Web para Super Nintendo
 
-  [Jogar Agora: snes.dellabeneta.io](https://snes.dellabeneta.io)
+  <br>
 
-    <p>
+  [![Jogar Agora](https://img.shields.io/badge/🎮_JOGAR_AGORA-snes.dellabeneta.io-5c5ab4?style=for-the-badge)](https://snes.dellabeneta.io)
+
+  <br>
+  
+  <p>
     <a href="#sparkles-features">Features</a> •
     <a href="#rocket-tech-stack">Tecnologias</a> •
     <a href="#joystick-como-jogar">Como Jogar</a> •
