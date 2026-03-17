@@ -3,7 +3,13 @@
 
   # 🎮 SNES Classic UI
 
-  **Um frontend web nostálgico e elegante para jogar os grandes clássicos do Super Nintendo direto no navegador.**
+    **Um frontend web nostálgico e elegante para jogar os grandes clássicos do Super Nintendo direto no navegador.**
+
+  <br>
+
+  [![Jogar Agora](https://img.shields.io/badge/🎮_JOGAR_AGORA-snes.dellabeneta.io-e60012?style=for-the-badge)](https://snes.dellabeneta.io)
+
+  <br>
 
   <p>
     <a href="#sparkles-features">Features</a> •
