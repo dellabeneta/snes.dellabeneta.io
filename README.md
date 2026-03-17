@@ -10,14 +10,14 @@
   <br>
   
   <p>
-    <a href="#sparkles-features">Features</a> •
-    <a href="#rocket-tech-stack">Tecnologias</a> •
-    <a href="#joystick-como-jogar">Como Jogar</a> •
+    <a href="#features">Features</a> •
+    <a href="#tech-stack">Tecnologias</a> •
+    <a href="#como-jogar">Como Jogar</a> •
     <a href="#cloud-hospedagem">Hospedagem</a>
 
 </div>
 
-## :sparkles: Features
+## Features
 
 - **Nostalgia Pura**: Interface inspirada no design clássico do SNES com paleta de cores autêntica e efeitos de *scanlines* CRT no fundo.
 - **EmulatorJS Integrado**: Poderoso motor de emulação (RetroArch Web) rodando no client-side para máxima performance.
@@ -27,14 +27,14 @@
 - **Save States**: Sistema nativo de salvamento e carregamento de progresso usando o banco de dados interno do navegador.
 - **Filtros Gráficos**: Suporte a dezenas de filtros visuais originais, incluindo simulações fiéis de TV de Tubo (CRT).
 
-## :rocket: Tech Stack
+## Tech Stack
 
 - **HTML5 & CSS3**: Estruturada semanticamente com estilização puramente Vanilla, dispensando frameworks pesados. Efeitos criados à mão usando `linear-gradient` e caixas flexíveis (`flexbox`/`grid`).
 - **Vanilla JavaScript**: Lógica de interface de usuário (UI), navegação em grade e hooks de eventos da emulação.
 - **EmulatorJS**: Core do sistema (`snes`), carregado dinamicamente via CDN.
 - **AWS S3 & Cloudflare**: Arquitetura padrão ideal para o deploy. Hospedagem estática com cache em borda.
 
-## :joystick: Como Jogar
+## Como Jogar
 
 O projeto é muito simples de rodar, pois se baseia numa arquitetura 100% estática (Serverless).
 
@@ -52,9 +52,9 @@ O projeto é muito simples de rodar, pois se baseia numa arquitetura 100% estát
 
 > **Nota**: Se estiver hospedando remotamente em cloud, não esqueça de configurar um certificado **SSL (HTTPS)** para que a API de Gamepad do seu navegador seja desbloqueada pela política de *"Secure Context"*.
 
-## :art: O Projeto em Ação
+## O Projeto em Ação
 
-O visual foca numa grelha (Grid Layout) com expansão fluída. Quando acionado, o emulador assume o modo Modal e te leva de volta para os anos 90! 👾 
+O visual foca numa grelha (Grid Layout) com expansão fluída. Quando acionado, o emulador assume o modo Modal e te leva de volta para os anos 90!
 
 <div align="center">
     <img src="assets/caps/mario-kart.png" width="180" />
