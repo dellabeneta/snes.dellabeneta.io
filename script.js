@@ -9,10 +9,13 @@ const games = [
     { name: "Chrono Trigger", rom: "chrono.sfc", thumb: "chrono.png" },
     { name: "Mega Man X", rom: "mmx.sfc", thumb: "mmx.png" },
     { name: "Top Gear", rom: "top-gear.sfc", thumb: "top-gear.png" },
-    { name: "Super Mario All-Stars", rom: "mario-allstars.sfc", thumb: "mario-allstars.png" }
+    { name: "Super Mario All-Stars", rom: "mario-allstars.sfc", thumb: "mario-allstars.png" },
+    { name: "Bugs Bunny Rabbit Rampage", rom: "bb-rabbit-ramp.sfc", thumb: "bb-rabbit-ramp.png" }
 ];
 
 const grid = document.getElementById('game-grid');
+
+games.sort((a, b) => a.name.localeCompare(b.name));
 
 games.forEach((game, index) => {
     const card = document.createElement('div');
