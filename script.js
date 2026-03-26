@@ -10,7 +10,10 @@ const games = [
     { name: "Mega Man X", rom: "mmx.sfc", thumb: "mmx.png" },
     { name: "Top Gear", rom: "top-gear.sfc", thumb: "top-gear.png" },
     { name: "Super Mario All-Stars", rom: "mario-allstars.sfc", thumb: "mario-allstars.png" },
-    { name: "Bugs Bunny Rabbit Rampage", rom: "bb-rabbit-ramp.sfc", thumb: "bb-rabbit-ramp.png" }
+    { name: "Bugs Bunny Rabbit Rampage", rom: "bb-rabbit-ramp.sfc", thumb: "bb-rabbit-ramp.png" },
+    { name: "International Superstar Soccer Deluxe", rom: "iss-deluxe.sfc", thumb: "iss-deluxe.png" },
+    { name: "The Mask", rom: "mask.sfc", thumb: "mask.png" },
+    { name: "Sunset Riders", rom: "sunset-riders.sfc", thumb: "sunset-riders.png" }
 ];
 
 const grid = document.getElementById('game-grid');
