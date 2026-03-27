@@ -13,7 +13,10 @@ const games = [
     { name: "Bugs Bunny Rabbit Rampage", rom: "bb-rabbit-ramp.sfc", thumb: "bb-rabbit-ramp.png" },
     { name: "International Superstar Soccer Deluxe", rom: "iss-deluxe.sfc", thumb: "iss-deluxe.png" },
     { name: "The Mask", rom: "mask.sfc", thumb: "mask.png" },
-    { name: "Sunset Riders", rom: "sunset-riders.sfc", thumb: "sunset-riders.png" }
+    { name: "Sunset Riders", rom: "sunset-riders.sfc", thumb: "sunset-riders.png" },
+    { name: "International Superstar Soccer", rom: "iss.smc", thumb: "iss.png" },
+    { name: "Street Fighter II Turbo", rom: "sf2t.smc", thumb: "sf2t.png" },
+    { name: "Ultimate Mortal Kombat 3", rom: "umk3.sfc", thumb: "umk3.png" }
 ];
 
 const grid = document.getElementById('game-grid');
