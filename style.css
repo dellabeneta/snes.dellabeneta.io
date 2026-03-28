@@ -118,8 +118,26 @@ body.hide-cursor {
     width: 100%;
     text-align: center;
 }
+ 
+ .system-stats {
+    position: absolute;
+    top: 45px;
+    right: 40px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #a78bfa;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 10;
+}
 
-.divider-line {
+#game-count {
+    color: #fff;
+    margin-left: 5px;
+    text-shadow: 0 0 8px rgba(167, 139, 250, 0.8);
+}
+
+ .divider-line {
     display: none;
 }
 
@@ -137,8 +155,45 @@ body.hide-cursor {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+ 
+.hidden {
+    display: none !important;
+}
 
-.game-area::-webkit-scrollbar {
+/* Localized Footer Search */
+#footer-search-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    letter-spacing: 1px;
+    width: 250px;
+    text-transform: uppercase;
+    padding: 0 5px;
+    margin-left: 10px;
+}
+
+#footer-search-input:focus {
+    width: 250px;
+}
+
+#footer-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Hover effect for interactive elements */
+#search-trigger {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+#search-trigger:hover {
+    opacity: 0.7;
+}
+
+ .game-area::-webkit-scrollbar {
     display: none;
 }
 

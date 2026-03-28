@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SNES Nostalgia</title>
+    <title>SNESTALGIA</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,9 @@
             </div>
             <p class="logo-sub">ENTERTAINMENT SYSTEM</p>
         </div>
+        <div class="system-stats">
+            <span>JOGOS: <span id="game-count">0</span></span>
+        </div>
         <div class="divider-line"></div>
     </header>
 
@@ -31,15 +34,21 @@
 
     <footer class="bottom-bar">
         <div class="divider-line bottom-line"></div>
-        <div class="controls-guide">
-            <span><kbd class="key-yellow">MOUSE / SETAS</kbd> NAVEGAR</span>
-            <span><kbd class="key-green">ENTER / CLIQUE</kbd> JOGAR</span>
-            <span><kbd class="key-blue">GAMEPAD</kbd> ATIVA NO JOGO</span>
+        <div id="controls-content" class="controls-guide">
+            <!-- <span><kbd class="key-yellow">MOUSE / SETAS</kbd> NAVEGAR</span> -->
+            <span id="search-trigger">
+                <kbd class="key-blue">PESQUISA</kbd>
+                <span id="search-text-hint">FAÇA SUA PROCURA AQUI</span>
+                <input type="text" id="footer-search-input" class="hidden" placeholder="DIGITE O NOME... ESC PARA CANCELAR." autocomplete="off">
+            </span>
+            <!-- <span><kbd class="key-green">ENTER / CLIQUE</kbd> JOGAR</span> -->
+            <span><kbd class="key-blue">GAMEPAD</kbd> FUNCIONA NO JOGO</span>
             <span><kbd class="key-red">ESC</kbd> SAIR DO JOGO</span>
             <a href="saves.html" style="text-decoration: none; color: inherit;">
                 <span style="cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><kbd class="key-saves">SAVES</kbd> ENTENDA COMO FUNCIONAM</span>
             </a>
         </div>
+
     </footer>
 
     <div id="emulator-modal" class="hidden">

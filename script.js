@@ -35,6 +35,8 @@ const games = [
     { name: "WWF Royal Rumble", rom: "wwftag2.smc", thumb: "wwftag1.png", saveType: null }
 ];
 
+document.getElementById('game-count').innerText = games.length;
+
 const grid = document.getElementById('game-grid');
 
 games.sort((a, b) => a.name.localeCompare(b.name));
@@ -73,53 +75,7 @@ function updateSelection() {
 }
 updateSelection();
 
-document.addEventListener('keydown', (e) => {
-    const modal = document.getElementById('emulator-modal');
-    
-    // When the game is running (modal is visible)
-    if (modal && !modal.classList.contains('hidden')) {
-        if (e.key === 'Escape') {
-            closeGame();
-        }
-        return; // Prevent navigating the grid in the background
-    }
 
-    // When navigating the grid (modal is hidden)
-    if (modal && modal.classList.contains('hidden')) {
-        const gridStyle = window.getComputedStyle(grid);
-        // Calculate number of columns based on how many auto-fit columns current layout allowed
-        const columnsStr = gridStyle.getPropertyValue('grid-template-columns');
-        const cols = columnsStr ? columnsStr.split(' ').length : 1;
-
-        if (e.key === 'ArrowRight') {
-            if (currentIndex < games.length - 1) {
-                currentIndex++;
-                updateSelection();
-            }
-        } else if (e.key === 'ArrowLeft') {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateSelection();
-            }
-        } else if (e.key === 'ArrowDown') {
-            if (currentIndex + cols < games.length) {
-                currentIndex += cols;
-                updateSelection();
-            } else if (currentIndex < games.length - 1) {
-                // If on the last row but not the last item, jump to the last item
-                currentIndex = games.length - 1;
-                updateSelection();
-            }
-        } else if (e.key === 'ArrowUp') {
-            if (currentIndex - cols >= 0) {
-                currentIndex -= cols;
-                updateSelection();
-            }
-        } else if (e.key === 'Enter') {
-            cards[currentIndex].click();
-        }
-    }
-});
 
 function loadGame(romName) {
     console.log("Iniciando:", romName);
@@ -168,7 +124,6 @@ function closeGame() {
     window.location.reload();
 }
 
-// --- Hide Cursor Logic ---
 // Show cursor when mouse moves
 document.addEventListener('mousemove', () => {
     document.body.classList.remove('hide-cursor');
@@ -177,4 +132,150 @@ document.addEventListener('mousemove', () => {
 // Hide cursor when keyboard is used
 document.addEventListener('keydown', () => {
     document.body.classList.add('hide-cursor');
+});
+
+// --- Search Functionality ---
+const searchTrigger = document.getElementById('search-trigger');
+const searchTextHint = document.getElementById('search-text-hint');
+const footerSearchInput = document.getElementById('footer-search-input');
+const gameCountValue = document.getElementById('game-count');
+
+function toggleSearch(show) {
+    if (show) {
+        if (searchTextHint) searchTextHint.classList.add('hidden');
+        if (footerSearchInput) {
+            footerSearchInput.classList.remove('hidden');
+            footerSearchInput.focus();
+        }
+    } else {
+        if (searchTextHint) searchTextHint.classList.remove('hidden');
+        if (footerSearchInput) {
+            footerSearchInput.classList.add('hidden');
+            footerSearchInput.value = '';
+        }
+        filterGames('');
+    }
+}
+
+// Ativar ao clicar na legenda do rodapé
+if (searchTrigger) {
+    searchTrigger.addEventListener('click', (e) => {
+        if (e.target !== footerSearchInput) {
+            toggleSearch(true);
+        }
+    });
+}
+
+// Fechar ao clicar fora (perder o foco)
+if (footerSearchInput) {
+    footerSearchInput.addEventListener('blur', () => {
+        // Pequeno delay para permitir que cliques em jogos funcionem antes de fechar
+        setTimeout(() => {
+            toggleSearch(false);
+        }, 200);
+    });
+}
+
+function filterGames(query) {
+    const q = query.toLowerCase().trim();
+    let visibleCount = 0;
+    let firstMatch = -1;
+
+    Array.from(cards).forEach((card, index) => {
+        const name = games[index].name.toLowerCase();
+        if (name.includes(q)) {
+            card.style.display = 'flex';
+            if (firstMatch === -1) firstMatch = index;
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // Update count display
+    if (q === '') {
+        gameCountValue.innerText = games.length;
+    } else {
+        gameCountValue.innerText = `${visibleCount}/${games.length}`;
+    }
+
+    // Move selection to first match if current is hidden
+    if (firstMatch !== -1 && (cards[currentIndex] && cards[currentIndex].style.display === 'none')) {
+        currentIndex = firstMatch;
+        updateSelection();
+    }
+}
+
+if (footerSearchInput) {
+    footerSearchInput.addEventListener('input', (e) => {
+        filterGames(e.target.value);
+    });
+}
+
+// Update keyboard listener
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('emulator-modal');
+    const isSearchOpen = footerSearchInput && !footerSearchInput.classList.contains('hidden');
+    
+    // When the game is running (modal is visible)
+    if (modal && !modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+            closeGame();
+        }
+        return; 
+    }
+
+    if (isSearchOpen) {
+        if (e.key === 'Escape') {
+            toggleSearch(false);
+            return;
+        }
+        if (e.key === 'Enter') {
+            if (cards[currentIndex] && cards[currentIndex].style.display !== 'none') {
+                cards[currentIndex].click();
+            }
+            return;
+        }
+        // Allow arrows even with search open
+    }
+
+    // Grid Navigation (considering visibility)
+    if (modal && modal.classList.contains('hidden')) {
+        const gridStyle = window.getComputedStyle(grid);
+        const columnsStr = gridStyle.getPropertyValue('grid-template-columns');
+        const cols = columnsStr ? columnsStr.split(' ').length : 1;
+
+        if (e.key === 'ArrowRight') {
+            let next = currentIndex + 1;
+            while (next < games.length && cards[next].style.display === 'none') next++;
+            if (next < games.length) {
+                currentIndex = next;
+                updateSelection();
+            }
+        } else if (e.key === 'ArrowLeft') {
+            let prev = currentIndex - 1;
+            while (prev >= 0 && cards[prev].style.display === 'none') prev--;
+            if (prev >= 0) {
+                currentIndex = prev;
+                updateSelection();
+            }
+        } else if (e.key === 'ArrowDown') {
+            // Simplificado: pula um bloco de colunas e busca o próximo visível
+            let target = currentIndex + cols;
+            while (target < games.length && cards[target].style.display === 'none') target++;
+            if (target < games.length) {
+                currentIndex = target;
+                updateSelection();
+            }
+        } else if (e.key === 'ArrowUp') {
+            let target = currentIndex - cols;
+            while (target >= 0 && cards[target].style.display === 'none') target--;
+            if (target >= 0) {
+                currentIndex = target;
+                updateSelection();
+            }
+        } else if (e.key === 'Enter' && !isSearchOpen) {
+            cards[currentIndex].click();
+        }
+    }
 });
