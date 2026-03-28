@@ -32,7 +32,7 @@ const games = [
     { name: "Super Soccer", rom: "ssa2.smc", thumb: "ssa2.png", saveType: "password" },
     { name: "TMNT IV: Turtles in Time", rom: "teenagemtt.smc", thumb: "teenagemtt.png", saveType: null },
     { name: "Top Gear 2", rom: "topgear2.smc", thumb: "topgear2.png", saveType: "password" },
-    { name: "WWF Royal Rumble", rom: "wwftag2.smc", thumb: "wwftag1.png", saveType: null }
+    { name: "WWF WrestleMania: The Arcade Game", rom: "wwftag.smc", thumb: "wwftag.png", saveType: null }
 ];
 
 document.getElementById('game-count').innerText = games.length;
