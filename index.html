@@ -11,20 +11,13 @@
     <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
-    <div class="background-effects">
-        <div class="scanlines"></div>
-    </div>
+    <div class="background-effects"></div>
+    <div class="scanlines"></div>
 
     <header class="top-bar">
         <div class="logo-container">
-            <span class="logo-nintendo">Nintendo</span>
             <div class="logo-main">
-                <div class="logo-snes-dots">
-                    <span class="dot green"></span>
-                    <span class="dot blue"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot red"></span>
-                </div>
+                <img src="assets/logo/snes.png" alt="SNES Logo" class="logo-snes-img">
                 <h1>SUPER NINTENDO</h1>
             </div>
             <p class="logo-sub">ENTERTAINMENT SYSTEM</p>
@@ -39,10 +32,13 @@
     <footer class="bottom-bar">
         <div class="divider-line bottom-line"></div>
         <div class="controls-guide">
-            <span><kbd>MOUSE / SETAS (PC)</kbd> NAVEGAR</span>
-            <span><kbd>ENTER / CLIQUE</kbd> JOGAR</span>
-            <span><kbd>🕹️ GAMEPAD/JOYSTICK</kbd> ATIVA SOMENTE DENTRO DO JOGO</span>
-            <span><kbd>ESC</kbd> SAIR DO JOGO</span>
+            <span><kbd class="key-yellow">MOUSE / SETAS</kbd> NAVEGAR</span>
+            <span><kbd class="key-green">ENTER / CLIQUE</kbd> JOGAR</span>
+            <span><kbd class="key-blue">GAMEPAD</kbd> ATIVA NO JOGO</span>
+            <span><kbd class="key-red">ESC</kbd> SAIR DO JOGO</span>
+            <a href="saves.html" style="text-decoration: none; color: inherit;">
+                <span style="cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.7" onmouseout="this.style.opacity=1"><kbd class="key-saves">SAVES</kbd> ENTENDA COMO FUNCIONAM</span>
+            </a>
         </div>
     </footer>
 

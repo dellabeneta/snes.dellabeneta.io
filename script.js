@@ -1,22 +1,38 @@
 const games = [
-    { name: "Super Mario World", rom: "smw.sfc", thumb: "smw.png" },
-    { name: "Donkey Kong Country", rom: "dkc1.sfc", thumb: "dkc1.png" },
-    { name: "Donkey Kong Country 2", rom: "dkc2.sfc", thumb: "dkc2.png" },
-    { name: "Donkey Kong Country 3", rom: "dkc3.sfc", thumb: "dkc3.png" },
-    { name: "Super Mario Kart", rom: "mario-kart.sfc", thumb: "mario-kart.png" },
-    { name: "Zelda: A Link to the Past", rom: "zelda-alttp.sfc", thumb: "zelda-alttp.png" },
-    { name: "Street Fighter II", rom: "sf2.sfc", thumb: "sf2.png" },
-    { name: "Chrono Trigger", rom: "chrono.sfc", thumb: "chrono.png" },
-    { name: "Mega Man X", rom: "mmx.sfc", thumb: "mmx.png" },
-    { name: "Top Gear", rom: "top-gear.sfc", thumb: "top-gear.png" },
-    { name: "Super Mario All-Stars", rom: "mario-allstars.sfc", thumb: "mario-allstars.png" },
-    { name: "Bugs Bunny Rabbit Rampage", rom: "bb-rabbit-ramp.sfc", thumb: "bb-rabbit-ramp.png" },
-    { name: "International Superstar Soccer Deluxe", rom: "iss-deluxe.sfc", thumb: "iss-deluxe.png" },
-    { name: "The Mask", rom: "mask.sfc", thumb: "mask.png" },
-    { name: "Sunset Riders", rom: "sunset-riders.sfc", thumb: "sunset-riders.png" },
-    { name: "International Superstar Soccer", rom: "iss.smc", thumb: "iss.png" },
-    { name: "Street Fighter II Turbo", rom: "sf2t.smc", thumb: "sf2t.png" },
-    { name: "Ultimate Mortal Kombat 3", rom: "umk3.sfc", thumb: "umk3.png" }
+    { name: "Super Mario World", rom: "smw.sfc", thumb: "smw.png", saveType: "sram" },
+    { name: "Donkey Kong Country", rom: "dkc1.sfc", thumb: "dkc1.png", saveType: "sram" },
+    { name: "Donkey Kong Country 2", rom: "dkc2.sfc", thumb: "dkc2.png", saveType: "sram" },
+    { name: "Donkey Kong Country 3", rom: "dkc3.sfc", thumb: "dkc3.png", saveType: "sram" },
+    { name: "Super Mario Kart", rom: "mario-kart.sfc", thumb: "mario-kart.png", saveType: "sram" },
+    { name: "Zelda: A Link to the Past", rom: "zelda-alttp.sfc", thumb: "zelda-alttp.png", saveType: "sram" },
+    { name: "Street Fighter II", rom: "sf2.sfc", thumb: "sf2.png", saveType: null },
+    { name: "Chrono Trigger", rom: "chrono.sfc", thumb: "chrono.png", saveType: "sram" },
+    { name: "Mega Man X", rom: "mmx.sfc", thumb: "mmx.png", saveType: "password" },
+    { name: "Top Gear", rom: "top-gear.sfc", thumb: "top-gear.png", saveType: "password" },
+    { name: "Super Mario All-Stars", rom: "mario-allstars.sfc", thumb: "mario-allstars.png", saveType: "sram" },
+    { name: "Bugs Bunny Rabbit Rampage", rom: "bb-rabbit-ramp.sfc", thumb: "bb-rabbit-ramp.png", saveType: "password" },
+    { name: "International Superstar Soccer Deluxe", rom: "iss-deluxe.sfc", thumb: "iss-deluxe.png", saveType: "password" },
+    { name: "The Mask", rom: "mask.sfc", thumb: "mask.png", saveType: null },
+    { name: "Sunset Riders", rom: "sunset-riders.sfc", thumb: "sunset-riders.png", saveType: null },
+    { name: "International Superstar Soccer", rom: "iss.smc", thumb: "iss.png", saveType: "password" },
+    { name: "Street Fighter II Turbo", rom: "sf2t.smc", thumb: "sf2t.png", saveType: null },
+    { name: "Ultimate Mortal Kombat 3", rom: "umk3.sfc", thumb: "umk3.png", saveType: null },
+    { name: "Aero Fighters", rom: "aerof.smc", thumb: "aerof.png", saveType: null },
+    { name: "Choplifter III", rom: "chop3.smc", thumb: "chop3.png", saveType: "password" },
+    { name: "Final Fight", rom: "ff.smc", thumb: "ff.png", saveType: null },
+    { name: "Final Fight 2", rom: "ff2.smc", thumb: "ff2.png", saveType: null },
+    { name: "Final Fight 3", rom: "ff3.smc", thumb: "ff3.png", saveType: null },
+    { name: "F-Zero", rom: "fzero.smc", thumb: "fzero.png", saveType: "sram" },
+    { name: "Mortal Kombat", rom: "mk.smc", thumb: "mk.png", saveType: null },
+    { name: "Mortal Kombat II", rom: "mk2.smc", thumb: "mk2.png", saveType: null },
+    { name: "NBA Jam", rom: "nbajam.smc", thumb: "nbajam.png", saveType: "password" },
+    { name: "Rock n' Roll Racing", rom: "rarr.smc", thumb: "rarr.png", saveType: "password" },
+    { name: "Samurai Shodown", rom: "samuraisho.smc", thumb: "samuraisho.png", saveType: null },
+    { name: "Side Pocket", rom: "sidepock.smc", thumb: "sidepock.png", saveType: "password" },
+    { name: "Super Soccer", rom: "ssa2.smc", thumb: "ssa2.png", saveType: "password" },
+    { name: "TMNT IV: Turtles in Time", rom: "teenagemtt.smc", thumb: "teenagemtt.png", saveType: null },
+    { name: "Top Gear 2", rom: "topgear2.smc", thumb: "topgear2.png", saveType: "password" },
+    { name: "WWF Royal Rumble", rom: "wwftag2.smc", thumb: "wwftag1.png", saveType: null }
 ];
 
 const grid = document.getElementById('game-grid');
@@ -27,9 +43,9 @@ games.forEach((game, index) => {
     const card = document.createElement('div');
     card.className = 'game-card';
     card.dataset.index = index;
+    
     card.innerHTML = `
         <img src="assets/caps/${game.thumb}" alt="${game.name}">
-        <div class="snes-label">SUPER NINTENDO ENTERTAINMENT SYSTEM</div>
         <p class="game-title">${game.name}</p>
     `;
     
