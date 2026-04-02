@@ -32,7 +32,8 @@ const games = [
     { name: "Super Soccer", rom: "ssa2.smc", thumb: "ssa2.png" },
     { name: "TMNT IV: Turtles in Time", rom: "teenagemtt.smc", thumb: "teenagemtt.png" },
     { name: "Top Gear 2", rom: "topgear2.smc", thumb: "topgear2.png" },
-    { name: "WWF WrestleMania: The Arcade Game", rom: "wwftag.sfc", thumb: "wwftag.png" }
+    { name: "WWF WrestleMania: The Arcade Game", rom: "wwftag.sfc", thumb: "wwftag.png" },
+    { name: "Goof Troop", rom: "gtroop.sfc", thumb: "gtroop.png" }
 ];
 
 document.getElementById('game-count').innerText = games.length;
