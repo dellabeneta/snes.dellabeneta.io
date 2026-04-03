@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/caps/smw.png" alt="Super Mario World Cover" width="250"/>
+  <img src="assets/caps/smw.avif" alt="Super Mario World Cover" width="250"/>
 
   ### 🎮 Emulador Web para Super Nintendo
 
@@ -53,10 +53,10 @@ O projeto é muito simples de rodar, pois se baseia numa arquitetura 100% estát
 O visual foca numa grelha (Grid Layout) com expansão fluída. Quando acionado, o emulador assume o modo Modal e te leva de volta para os anos 90!
 
 <div align="center">
-    <img src="assets/caps/mario-kart.png" width="180" />
-    <img src="assets/caps/chrono.png" width="180" />
-    <img src="assets/caps/dkc1.png" width="180" />
-    <img src="assets/caps/zelda-alttp.png" width="180" />
+    <img src="assets/caps/mario-kart.avif" width="180" />
+    <img src="assets/caps/chrono.avif" width="180" />
+    <img src="assets/caps/dkc1.avif" width="180" />
+    <img src="assets/caps/zelda-alttp.avif" width="180" />
 </div>
 
 <br>
