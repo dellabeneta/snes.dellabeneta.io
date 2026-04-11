@@ -115,6 +115,9 @@ function loadGame(romName) {
 
 function closeGame() {
     console.log("Fechando jogo");
+    const confirmExit = confirm("Tem certeza que deseja sair? O progresso não salvo será perdido.");
+    if (!confirmExit) return;
+
     const modal = document.getElementById('emulator-modal');
     modal.classList.add('hidden');
     
